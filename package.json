@@ -1,0 +1,35 @@
+{
+  "name": "thefa-fulltime",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "helper to scrape data from the fa fulltime youth football system",
+  "main": "index.mjs",
+  "scripts": {
+    "dev": "nodemon --experimental-json-modules index.mjs",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config=config/jest.config.json"
+  },
+  "keywords": [
+    "thefa",
+    "football",
+    "youth",
+    "fulltime"
+  ],
+  "author": "Michael Hawkins",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "chai": "^4.3.7",
+    "jasmine": "^4.5.0",
+    "jest": "^29.3.1",
+    "jest-cli": "^29.3.1",
+    "mocha": "^10.1.0",
+    "node-fetch": "^3.3.0",
+    "nodemon": "^2.0.20",
+    "webpack": "^5.75.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/register": "^7.18.9",
+    "jsdom": "^20.0.3"
+  }
+}
