@@ -1,5 +1,5 @@
 {
-  "name": "thefa-fulltime",
+  "name": "@hawkmauk/thefa-fulltime-api",
   "type": "module",
   "version": "1.0.0",
   "description": "helper to scrape data from the fa fulltime youth football system",
@@ -15,21 +15,26 @@
     "fulltime"
   ],
   "author": "Michael Hawkins",
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "@babel/preset-env": "^7.20.2",
-    "chai": "^4.3.7",
-    "jasmine": "^4.5.0",
     "jest": "^29.3.1",
     "jest-cli": "^29.3.1",
-    "mocha": "^10.1.0",
     "node-fetch": "^3.3.0",
-    "nodemon": "^2.0.20",
-    "webpack": "^5.75.0"
+    "nodemon": "^2.0.20"
   },
   "dependencies": {
-    "@babel/core": "^7.20.2",
-    "@babel/register": "^7.18.9",
     "jsdom": "^20.0.3"
-  }
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hawkmauk/thefa-fulltime-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hawkmauk/thefa-fulltime-api/issues"
+  },
+  "homepage": "https://github.com/hawkmauk/thefa-fulltime-api#readme"
 }
