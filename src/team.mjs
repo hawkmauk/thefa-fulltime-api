@@ -8,7 +8,13 @@ import { getHtml } from './core.mjs'
  * @param {*} league - The UID of the league to return teams of
  * @returns Array of teams belonging to a league
  */
- export async function teams( league, season, club ){
+const agegroup_pattern = /^.*[Uu]([0-9]+).*$/
+const teamSortCallback = ( team1, team2 ) => {
+    if ( team1.agegroup < team2.agegroup ) return -1
+    if ( team1.agegroup > team2.agegroup ) return 1
+    return 0
+}
+export async function teams( league, season, club ){
 
     // build the URL
     let html = await getHtml( { 'season': season, 'league': league, 'club': club })
@@ -16,7 +22,10 @@ import { getHtml } from './core.mjs'
     let result = []
     dom.window.document.querySelectorAll( '#form1_selectedTeam option' )
         .forEach( item => {
-            if ( item.value ) result.push({ 'id': item.value, 'name': item.textContent })
+            let agegroup = parseInt( item.textContent.replace(agegroup_pattern,(match, group) => { return group } ) )
+            console.log( `Age group is ${ agegroup }: ${ item.textContent }`)
+            if ( item.value && item.agegroup != 'All' ) result.push({ 'id': item.value, 'name': item.textContent, 'agegroup': agegroup })
         })
+    result.sort( teamSortCallback )
     return result
 }

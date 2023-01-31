@@ -2,12 +2,12 @@ NYDAL League
 https://fulltime.thefa.com/fixtures.html?league=377117096
 
 For Each option in:
-#form1_selectedTeam where value contains "Grange Park Rangers"
+#form1_selectedTeam where value contains ["team name", "club name"]
 get the option value
 call the URL: https://fulltime.thefa.com/fixtures.html?selectedSeason=927808228&selectedFixtureGroupAgeGroup=0&selectedFixtureGroupKey=&selectedDateCode=all&selectedClub=&selectedTeam=***option value***&selectedRelatedFixtureOption=3&selectedFixtureDateStatus=&selectedFixtureStatus=&previousSelectedFixtureGroupAgeGroup=&previousSelectedFixtureGroupKey=&previousSelectedClub=&itemsPerPage=100
 
 for each tr in .fixtures-table tbody:
-	td[0] = type ( L = League, CUP = cup )
+	td[0] = type ( L = League, CUP = cup, CC = County Cup )
 	td[1] = date
 	td[2] | td.home-team = Home Team
 	td[3] | td.team-logo = Logo
@@ -17,3 +17,6 @@ for each tr in .fixtures-table tbody:
 	td[7] = venue
 	td[8] = competition
 	td[9] = status
+
+Look for Postponed in the status for league games conflicting with cup games.
+If neither td[2] or td[6] have the "team name" search again using the "club name"

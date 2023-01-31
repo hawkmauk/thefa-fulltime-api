@@ -16,9 +16,18 @@ export const fulltime = {
     },
     fixture: {
         type: {
-            'L': 'League',
-            'Cup': 'Cup',
-            'CC': 'County Cup',
+            League: {
+                code: 'L',
+                display: 'League'
+            },
+            Cup: {
+                code: 'Cup',
+                display: 'Cup'
+            },
+            CountyCup: {
+                code: 'CC',
+                display: 'County Cup'
+            }
         }
     }
 }
