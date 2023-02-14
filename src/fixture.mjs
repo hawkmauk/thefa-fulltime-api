@@ -26,14 +26,18 @@ let replace_regexp = /[\n\t]/g
             fixture['away'] = data[6].textContent.replace(replace_regexp,'') 
             fixture['venue'] = data[7].textContent.replace(replace_regexp,'')
             fixture['league'] = data[8].textContent.replace(replace_regexp,'')
-            try {
-                fixture['status'] = data[9].textContent.replace(replace_regexp,'')
-            } catch ( e ){
-                fixture['status'] = 'Active'
-            }
+            fixture['status'] = getStatus( data[9] )
             result.push( fixture )
         })
     return result
+}
+
+function getStatus( element ){
+    let status = 'Active'
+    if ( element !== undefined ) {
+        status = element.textContent.replace(replace_regexp,'')
+    }
+    return status
 }
 
 function getType( code ){

@@ -1,5 +1,5 @@
 import { teams, clubs, fixtures } from './src/api.mjs'
-import data from './test/data/data.json'
+import data from './test/data/data.json' assert { type: "json" }
 
 function toExcelDate( date ){
     return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`
@@ -21,7 +21,7 @@ teams( data.league.id, data.season.id, data.club.id )
                                     home_fixture = true
                                 } else if ( fixture.away == team.name ){
                                     home_fixture = false
-                                } else if ( fixture.home != team.name && fixture.home.includes( team.name ) ){
+                                } else if ( fixture.home != team.name && fixture.home.includes( data.club.name ) ){
                                     home_fixture = true
                                 } else {
                                     home_fixture = false
